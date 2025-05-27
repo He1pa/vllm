@@ -207,9 +207,9 @@ class LLMEngine:
 
     def __init__(
         self,
-        vllm_config: VllmConfig,
-        executor_class: Type[ExecutorBase],
-        log_stats: bool,
+        vllm_config: VllmConfig, # 包含所有引擎配置的聚合对象，包括：
+        executor_class: Type[ExecutorBase], # 实际执行模型推理的类（如 GPUExecutor），负责管理计算资源。
+        log_stats: bool, 
         usage_context: UsageContext = UsageContext.ENGINE_CONTEXT,
         stat_loggers: Optional[Dict[str, StatLoggerBase]] = None,
         mm_registry: MultiModalRegistry = MULTIMODAL_REGISTRY,
